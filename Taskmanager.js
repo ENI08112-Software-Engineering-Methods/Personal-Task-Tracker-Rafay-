@@ -8,4 +8,13 @@ function addTask(task) {
   return newTask;
 }
 
-module.exports = { tasks, addTask };
+function completeTask(taskId) {
+  const task = tasks.find((t) => t.id === taskId);
+  if (task) {
+    task.completed = true;
+    console.log("Task completed: " + task.name);
+  }
+  return task;
+}
+
+module.exports = { tasks, addTask, completeTask };
